@@ -13,6 +13,10 @@ def load_and_chunk_file(file_path: str, chunk_size: int = 150):
     if not os.path.exists(file_path):
         raise FileNotFoundError(Fore.RED + f'[ERROR]: File {file_path} does not exist !' + Style.RESET_ALL)
     
+    if os.path.getsize(file_path) <= 500:
+        print(Fore.RED + f"[WARNING]: File {file_path} does not have valid size !" + Style.RESET_ALL)
+        exit(1)
+
     with open(file_path, 'r', encoding='utf-8') as file:
         file_content = file.read()
 
