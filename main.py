@@ -25,9 +25,6 @@ if __name__ == "__main__":
     
     console.print("[POCKET-RAG]: Start of rag system initialization...", style="bold yellow")
     chunks = load_and_chunk_file(file_path=FILE_PATH, chunk_size=CHUNK_SIZE)
-    if not chunks:
-        console.print(f"[POCKET-RAG]: The file {FILE_PATH} don't have a content", style="bold underline red")
-        exit(1)
     collection = init_local_vector_db(chunks=chunks)
     console.print('[POCKET-RAG]: End of rag system initialization', style="bold green")
 
