@@ -1,14 +1,11 @@
 # Python virtual environment
 .venv/
 
-# Environment variables 
-.env
-
 # Python cache files
 __pycache__/
 
-# Project temporary notes
-diagram.md
-
-# Local test / sample data file
-my-document.txt
+# Local test / build
+build
+pocket_rag.egg-info
+tests
+dist

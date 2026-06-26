@@ -27,10 +27,16 @@ It enables fast and secure semantic document search using <strong>ChromaDB</stro
 
 <table>
   <tr>
-    <td><a href="./docs/README_FR.md">French Documentation</a></td>
+    <td><a href="./.github/docs/README_FR.md">French Documentation</a></td>
   </tr>
   <tr>
-    <td><a href="./docs/README_EN.md">English Documentation</a></td>
+    <td><a href="./.github/docs/README_EN.md">English Documentation</a></td>
+  </tr>
+  <tr>
+    <td><a href="./.github/captures/config-table.png">Demo image of the setup</a></td>
+  </tr>
+  <tr>
+    <td><a href="./.github/captures/question-example.png">Demo image of the engine query</a></td>
   </tr>
 </table>
 
@@ -42,10 +48,8 @@ It enables fast and secure semantic document search using <strong>ChromaDB</stro
 pocket-rag-cli/
 │
 ├── src/            Core application modules
-├── res/            Source documents
-├── main.py         Entry point
 │
-├── docs/           Full documentation (FR / EN)
+├── .github/docs/           Full documentation (FR / EN)
 ├── CONTRIBUTING.md Contribution guidelines
 ├── LICENSE         Project license
 </pre>

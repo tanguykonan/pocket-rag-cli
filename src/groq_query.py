@@ -1,33 +1,30 @@
-import os
 from typing import Iterable
-from src.prompt import groq_prompt_en
-from dotenv import load_dotenv
 from groq import Groq, GroqError
-from colorama import Style, Fore, init
+from colorama import Style, Fore
+from src.prompt import groq_prompt
 from groq.types.chat import ChatCompletionMessageParam
 
-init(autoreset=True)
-load_dotenv()
-
-def generate_response(question: str, context: str)-> str:
+def generate_response(question: str, context: str, api: str, model: str)-> str:
     ''''
         Generate response with groq llm model using API KEY
     @question: A question about documents content.
-    @context: The best answer return buy the search in vector_db
+    @context: The best answer return buy the search in vector_db.
+    @api: The configured api key.
+    @model: The configured model.
     '''
-    try:
-        client = Groq(api_key=os.getenv('GROQ_API_KEY'))
-        model = str(os.getenv('GROQ_LLM_MODEL'))
 
-        test_messages: Iterable[ChatCompletionMessageParam] = [
-            {"role": "system", "content": groq_prompt_en},
+    try:
+        client = Groq(api_key=api)
+
+        query_messages: Iterable[ChatCompletionMessageParam] = [
+            {"role": "system", "content": groq_prompt},
             {"role": "user", "content": f"CONTEXT:\n{context}\n\nQUESTION:\n{question}"}
         ]
 
         ''''Process of response generation'''
         completion = client.chat.completions.create(
             model=model,
-            messages=test_messages,
+            messages=query_messages,
             max_tokens=1024,
             temperature=0.1
         )
